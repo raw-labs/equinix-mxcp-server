@@ -8,7 +8,7 @@ profiles:
       path: data/db-default.duckdb
 
 sql_tools:
-  enabled: false
+  enabled: true
 
 dbt:
   enabled: true

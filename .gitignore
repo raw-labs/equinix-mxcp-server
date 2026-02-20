@@ -209,5 +209,6 @@ __marimo__/
 .DS_Store
 
 # MXCP data
-data/
+data/*
+!data/db-default.duckdb
 logs/

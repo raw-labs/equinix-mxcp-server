@@ -17,11 +17,7 @@ jobs:
           docker build -t equinix-mxcp-server:test .
 
       - name: Validate MXCP server
-        run: |
-          docker run --rm \
-            equinix-mxcp-server:test mxcp validate
+        run: docker run --rm equinix-mxcp-server:test mxcp validate
 
       - name: Test MXCP server
-        run: |
-          docker run --rm \
-            equinix-mxcp-server:test mxcp test
+        run: docker run --rm equinix-mxcp-server:test mxcp test
