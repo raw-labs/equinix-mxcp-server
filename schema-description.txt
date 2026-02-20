@@ -1,0 +1,79 @@
+## Equinix Billing Data Schema
+
+You have access to Vodafone Ireland's Equinix data center billing data across three Dublin IBX sites (DB1, DB2, DB3), covering four product categories: Space, Power, Interconnection, and Services. The data includes contract lifecycle information for pricing evolution analysis, renewal planning, and rate card benchmarking.
+
+### Data Tables
+
+**load_billing_data** — Billing transaction lines from the TDR Excel sheet.
+Columns:
+- trx_number (string): Invoice transaction number.
+- trx_date (date): Transaction date.
+- currency (string): Invoice currency code (EUR).
+- product_category (string): One of Power, Interconnection, Services, Space.
+- charge_type (string): Charge type label (RC, NRC, Usage, Reseller Discount).
+- charge_type_clean (string): Normalized charge type classification.
+- ibx (string): IBX data center location code (DB1, DB2, DB3).
+- quantity (number): Billed quantity.
+- unit_price (number): Price per unit.
+- line_amount (number): Net line amount before GST.
+- gst_amount (number): GST amount applied.
+- total_amount (number): Line total including GST.
+- description (string): Line item description from invoice.
+- product_offering (string): Product offering code.
+- product_elements (string): Product element code.
+- billing_agreement (string): Billing agreement identifier.
+- serial_number (string): Asset or serial number.
+- recurring_charge_from (date): Recurring charge period start.
+- recurring_charge_to (date): Recurring charge period end.
+- customer_name (string): Customer account name.
+- billing_agreement_start (date): Billing agreement start date.
+- billing_agreement_end (date): Billing agreement end date.
+- service_start_date (date): Date the service began.
+- installation_date (date): Date equipment was installed.
+- contract_duration (number, nullable): Contract duration in months (~75% populated).
+- new_activity (string): New (Y) or existing (N) activity flag.
+- sales_order_number (string): Sales order number.
+
+**rate_card_dublin** — 2020 rate card pricing for Dublin IBX data centers (4 rows: DB1–DB4).
+Columns:
+- ibx (string): IBX location code.
+- min_density_kva (number): Minimum power density in kVA.
+- price_per_kva_eur (number): Monthly recurring price per kVA in EUR.
+- cabinet_install_nrc_eur (number): Non-recurring cabinet installation charge in EUR.
+- cage_install_nrc_eur (number): Non-recurring cage installation charge in EUR.
+- smart_hands_hourly_eur (number): Hourly rate for smart hands services in EUR.
+- effective_date (date): Rate card effective date (2020-03-31).
+
+**service_order_db2_2025** — March 2025 replacement service order line items for DB2 (4 rows).
+Columns:
+- product_code (string): Equinix product code.
+- description (string): Product description.
+- ibx (string): IBX location code (DB2).
+- quantity (number): Ordered quantity.
+- uom (string): Unit of measure (kVA, Each).
+- unit_mrc_eur (number): List monthly recurring charge per unit in EUR.
+- discount_pct (number): Discount percentage (negative means surcharge).
+- effective_mrc_eur (number): Effective MRC after discount in EUR.
+- effective_date (date): Service order effective date (2025-04-01).
+- initial_term_months (number): Initial contract term in months (60).
+- product_category (string): Product category (Space, Power, Interconnection).
+
+### Available Tools
+
+**Reference tools:**
+- list_ibx_locations — List IBX sites with line counts and total spend. No parameters.
+- list_product_categories — List product categories with line counts and total spend. No parameters.
+
+**Detail tools:**
+- get_billing_by_category(product_category) — Line-level billing for a product category. Param: product_category (Power|Interconnection|Services|Space).
+- get_billing_by_ibx(ibx) — Line-level billing for an IBX site. Param: ibx (DB1|DB2|DB3).
+
+**Summary & trend tools:**
+- get_billing_summary — Spend by product category and IBX. No parameters.
+- get_monthly_spend — Monthly spend trend by product category. No parameters.
+
+**Analytics tools:**
+- get_pricing_by_vintage — Unit pricing grouped by agreement start year, category, IBX, and new/existing activity. Shows pricing evolution across contract vintages. No parameters.
+- get_expiring_agreements(before_date) — Agreements expiring before a given date, grouped by agreement, IBX, and category. Param: before_date (YYYY-MM-DD).
+- compare_to_rate_card — Compares actual billed Space/Power unit prices against the 2020 rate card by IBX. Shows avg/min/max billed price vs rate card price and the difference. No parameters.
+- get_contract_overview — Overview of distinct contracts with agreement dates, durations, new/existing status, and financials. No parameters.
