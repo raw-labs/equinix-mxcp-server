@@ -1,0 +1,42 @@
+mxcp: 1
+tool:
+  name: get_monthly_spend
+  description: |
+    Return monthly billing spend trend by product category.
+    Each record includes a year-month bucket, summed total amount, and line count.
+  parameters: []
+  return:
+    type: array
+    items:
+      type: object
+      properties:
+        month:
+          type: string
+        product_category:
+          type: string
+        total_amount:
+          type: number
+        line_count:
+          type: integer
+  source:
+    code: |
+      SELECT
+        STRFTIME(trx_date, '%Y-%m') AS month,
+        product_category,
+        ROUND(SUM(total_amount), 2) AS total_amount,
+        CAST(COUNT(*) AS INTEGER) AS line_count
+      FROM load_billing_data
+      GROUP BY 1, 2
+      ORDER BY month, product_category
+  tests:
+    - name: monthly_spend_group_count
+      description: "Returns all monthly product-category groups."
+      arguments: []
+      result_length: 29
+    - name: monthly_spend_contains_space_aug_2025
+      description: "Includes Space billing for August 2025."
+      arguments: []
+      result_contains_item:
+        month: "2025-08"
+        product_category: "Space"
+        line_count: 20

@@ -1,0 +1,43 @@
+mxcp: 1
+tool:
+  name: list_product_categories
+  description: |
+    List distinct billing product categories with line counts and aggregated spend values.
+  parameters: []
+  return:
+    type: array
+    items:
+      type: object
+      properties:
+        product_category:
+          type: string
+        line_count:
+          type: integer
+        total_line_amount:
+          type: number
+        total_gst:
+          type: number
+        total_amount:
+          type: number
+  source:
+    code: |
+      SELECT
+        product_category,
+        CAST(COUNT(*) AS INTEGER) AS line_count,
+        ROUND(SUM(line_amount), 2) AS total_line_amount,
+        ROUND(SUM(gst_amount), 2) AS total_gst,
+        ROUND(SUM(total_amount), 2) AS total_amount
+      FROM load_billing_data
+      GROUP BY product_category
+      ORDER BY product_category
+  tests:
+    - name: list_all_product_categories
+      description: "Returns all product categories."
+      arguments: []
+      result_length: 4
+    - name: power_category_totals_present
+      description: "Includes Power category counts."
+      arguments: []
+      result_contains_item:
+        product_category: "Power"
+        line_count: 84

@@ -1,0 +1,69 @@
+mxcp: 1
+tool:
+  name: get_billing_by_category
+  description: |
+    Get detailed billing lines for a specific product category.
+    Use this for line-level review of usage, recurring, and non-recurring charges.
+  parameters:
+    - name: product_category
+      type: string
+      description: "Billing product category to filter."
+      enum: ["Power", "Interconnection", "Services", "Space"]
+      examples: ["Power", "Interconnection"]
+  return:
+    type: array
+    items:
+      type: object
+      properties:
+        trx_number:
+          type: string
+        trx_date:
+          type: string
+          format: date
+        product_category:
+          type: string
+        charge_type:
+          type: string
+        ibx:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: number
+        unit_price:
+          type: number
+        line_amount:
+          type: number
+        total_amount:
+          type: number
+  source:
+    code: |
+      SELECT
+        trx_number,
+        trx_date,
+        product_category,
+        charge_type,
+        ibx,
+        description,
+        quantity,
+        unit_price,
+        line_amount,
+        total_amount
+      FROM load_billing_data
+      WHERE product_category = $product_category
+      ORDER BY trx_date, trx_number
+  tests:
+    - name: get_power_billing_lines
+      description: "Returns all Power category lines."
+      arguments:
+        - key: product_category
+          value: "Power"
+      result_length: 84
+    - name: interconnection_includes_db2
+      description: "Interconnection result includes DB2 records."
+      arguments:
+        - key: product_category
+          value: "Interconnection"
+      result_contains_item:
+        product_category: "Interconnection"
+        ibx: "DB2"

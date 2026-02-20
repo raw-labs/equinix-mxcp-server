@@ -1,0 +1,48 @@
+mxcp: 1
+tool:
+  name: get_billing_summary
+  description: |
+    Summarize Vodafone Ireland billing spend by product category and IBX location.
+    Returns net line amount, GST, total billed amount, and line counts.
+  parameters: []
+  return:
+    type: array
+    items:
+      type: object
+      properties:
+        product_category:
+          type: string
+        ibx:
+          type: string
+        total_line_amount:
+          type: number
+        total_gst:
+          type: number
+        total_amount:
+          type: number
+        line_count:
+          type: integer
+  source:
+    code: |
+      SELECT
+        product_category,
+        ibx,
+        ROUND(SUM(line_amount), 2) AS total_line_amount,
+        ROUND(SUM(gst_amount), 2) AS total_gst,
+        ROUND(SUM(total_amount), 2) AS total_amount,
+        CAST(COUNT(*) AS INTEGER) AS line_count
+      FROM load_billing_data
+      GROUP BY product_category, ibx
+      ORDER BY product_category, ibx
+  tests:
+    - name: billing_summary_group_count
+      description: "Returns all product category and IBX combinations."
+      arguments: []
+      result_length: 11
+    - name: billing_summary_has_power_db3
+      description: "Includes Power records for DB3."
+      arguments: []
+      result_contains_item:
+        product_category: "Power"
+        ibx: "DB3"
+        line_count: 38

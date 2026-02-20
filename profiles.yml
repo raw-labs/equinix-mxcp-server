@@ -1,0 +1,6 @@
+equinix:
+  outputs:
+    dev:
+      type: duckdb
+      path: data/db-default.duckdb
+  target: dev

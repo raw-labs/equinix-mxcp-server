@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: load_billing_data
+    description: "Vodafone Ireland telecom billing transactions loaded from the TDR Excel sheet."
+    columns:
+      - name: trx_number
+        description: "Transaction number from source invoice line."
+        tests:
+          - not_null
+      - name: trx_date
+        description: "Transaction date for the invoice line."
+        tests:
+          - not_null
+      - name: currency
+        description: "Invoice currency code."
+        tests:
+          - not_null
+      - name: product_category
+        description: "Product category for the billed line."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Power", "Interconnection", "Services", "Space"]
+      - name: charge_type
+        description: "Charge type label from source billing data."
+        tests:
+          - not_null
+      - name: charge_type_clean
+        description: "Normalized charge type classification."
+      - name: ibx
+        description: "IBX location code."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["DB1", "DB2", "DB3"]
+      - name: quantity
+        description: "Billed quantity."
+      - name: unit_price
+        description: "Unit price for the billed quantity."
+      - name: line_amount
+        description: "Net line amount before GST."
+        tests:
+          - not_null
+      - name: gst_amount
+        description: "GST amount applied to the line."
+        tests:
+          - not_null
+      - name: total_amount
+        description: "Line total including GST."
+        tests:
+          - not_null
+      - name: description
+        description: "Line description from invoice details."
+      - name: product_offering
+        description: "Product offering code."
+      - name: product_elements
+        description: "Product element code."
+      - name: billing_agreement
+        description: "Billing agreement identifier."
+      - name: serial_number
+        description: "Asset or serial number tied to the billed item."
+      - name: recurring_charge_from
+        description: "Recurring charge period start date."
+      - name: recurring_charge_to
+        description: "Recurring charge period end date."
+      - name: customer_name
+        description: "Customer account name."
+        tests:
+          - not_null

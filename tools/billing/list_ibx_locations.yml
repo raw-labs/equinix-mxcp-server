@@ -1,0 +1,43 @@
+mxcp: 1
+tool:
+  name: list_ibx_locations
+  description: |
+    List distinct IBX locations with line counts and aggregated spend values.
+  parameters: []
+  return:
+    type: array
+    items:
+      type: object
+      properties:
+        ibx:
+          type: string
+        line_count:
+          type: integer
+        total_line_amount:
+          type: number
+        total_gst:
+          type: number
+        total_amount:
+          type: number
+  source:
+    code: |
+      SELECT
+        ibx,
+        CAST(COUNT(*) AS INTEGER) AS line_count,
+        ROUND(SUM(line_amount), 2) AS total_line_amount,
+        ROUND(SUM(gst_amount), 2) AS total_gst,
+        ROUND(SUM(total_amount), 2) AS total_amount
+      FROM load_billing_data
+      GROUP BY ibx
+      ORDER BY ibx
+  tests:
+    - name: list_all_ibx_locations
+      description: "Returns all IBX sites in billing data."
+      arguments: []
+      result_length: 3
+    - name: db2_totals_present
+      description: "Includes DB2 location counts."
+      arguments: []
+      result_contains_item:
+        ibx: "DB2"
+        line_count: 619

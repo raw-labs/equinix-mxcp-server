@@ -1,0 +1,16 @@
+mxcp: 1
+profile: default
+project: equinix
+
+profiles:
+  default:
+    duckdb:
+      path: data/db-default.duckdb
+
+sql_tools:
+  enabled: false
+
+dbt:
+  enabled: true
+  model_paths: ["models"]
+  test_paths: ["tests"]
