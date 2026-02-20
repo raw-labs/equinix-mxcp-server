@@ -1,6 +1,6 @@
 mxcp: 1
 projects:
-  equinix-mxcp-server:
+  equinix:
     profiles:
       default:
         {}
