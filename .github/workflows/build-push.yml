@@ -22,7 +22,7 @@ jobs:
 
       - name: Run MXCP checks
         run: |
-          docker run --rm equinix-mxcp-server:test sh -lc "python -m pip install --quiet openpyxl && mxcp dbt run && mxcp validate && mxcp test && mxcp dbt test"
+          docker run --rm equinix-mxcp-server:test sh -lc "mxcp dbt run && mxcp validate && mxcp test && mxcp dbt test"
 
   build-mxcp:
     name: Build MXCP Server Image
