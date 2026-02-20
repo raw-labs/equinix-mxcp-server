@@ -1,0 +1,49 @@
+product,type,us_mrc,us_nrc,ca_mrc,ca_nrc,br_mrc,br_nrc,co_mrc,co_nrc,effective_date
+Cross Connect,Fiber (SM/MM),350,500,453,647,640,640,1038160,1483085,2020-03-31
+Cross Connect,UTP/Coax,245,500,317,647,450,450,726712,1483085,2020-03-31
+Extended Fiber Cross Connect,"DA7,SE2,SE3,TR1",350,500,679,1293,,,,, 2020-03-31
+Extended Fiber Cross Connect,All Other,750,1000,970,1293,,,,,2020-03-31
+Fiber Connect,"DE,MI,SV",350,500,,,,,,, 2020-03-31
+Fiber Connect,"AT,TR",750,1000,970,1293,,,,,2020-03-31
+Fiber Connect,NY,,,,,,,,, 2020-03-31
+Extended Fiber Connect,"AT,TR",999,1000,1292,1293,,,,,2020-03-31
+Extended Fiber Connect,NY,,,,,,,,, 2020-03-31
+Metro Connect (Protected),1G,500,500,647,647,1310,500,,,2020-03-31
+Metro Connect (Protected),10G,750,1000,970,1293,4160,1000,,,2020-03-31
+Metro Connect (Protected),100G,4000,4000,5173,5173,29750,10000,,,2020-03-31
+Internet Exchange Port,1G,375,1000,485,1293,1150,500,1112314,2966170,2020-03-31
+Internet Exchange Port,10G,500,1000,647,1293,1500,1000,1483085,2966170,2020-03-31
+Internet Exchange Port,100G,3000,5000,3880,6467,13612.5,10000,8898510,14830850,2020-03-31
+Cloud Exchange Port,1G Metro,100,500,,,400,2000,,,2020-03-31
+Cloud Exchange Port,10G Metro,200,3000,,,800,12000,,,2020-03-31
+Cloud Exchange Port,100G Metro,1000,5000,,,4000,20000,,,2020-03-31
+Cloud Exchange Layer 2 or 3 Connection (Local/Remote),Up to 50MB,75,0,,, 300,,,,2020-03-31
+Cloud Exchange Layer 2 or 3 Connection (Local/Remote),Up to 200MB,100,0,,,400,,,,2020-03-31
+Cloud Exchange Layer 2 or 3 Connection (Local/Remote),Up to 500MB,150,0,,,600,,,,2020-03-31
+Cloud Exchange Layer 2 or 3 Connection (Local/Remote),Up to 1G,200,0,,,800,,,,2020-03-31
+Cloud Exchange Layer 2 or 3 Connection (Local/Remote),Up to 10G,500,0,,,2000,,,,2020-03-31
+Cloud Exchange Port (Unlimited),1G Metro,750,500,,,3000,500,,,2020-03-31
+Cloud Exchange Port (Unlimited),10G Metro,1500,3000,,,6000,1000,,,2020-03-31
+Cloud Exchange Port (Unlimited),100G Metro,10000,5000,,,40000,20000,,,2020-03-31
+Equinix Connect Port (Single-Homed),100M,0,250,,,0,300,,,2020-03-31
+Equinix Connect Port (Single-Homed),1G,0,1000,,,0,300,,,2020-03-31
+Equinix Connect Port (Single-Homed),10G,0,2000,,,0,700,,,2020-03-31
+Equinix Connect Port (Dual-Homed),100M,0,500,,,0,500,,,2020-03-31
+Equinix Connect Port (Dual-Homed),1G,0,2000,,,0,500,,,2020-03-31
+Equinix Connect Port (Dual-Homed),10G,0,4000,,,0,1000,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),10-25 Mbps,30,0,,,18,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),26-50 Mbps,20,0,,,18,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),51-100 Mbps,18,0,,,15,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),101-200 Mbps,15,0,,,13,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),201-500 Mbps,12,0,,,12,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),501-1000 Mbps,10,0,,,11,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),1001-2000 Mbps,9,0,,,8,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),2001-5000 Mbps,7,0,,,8,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),5001-10000 Mbps,5,0,,,8,0,,,2020-03-31
+Equinix Connect Bandwidth (Price/Mbps),>10000 Mbps,4,0,,,6,0,,,2020-03-31
+Equinix Connect Additional IP Allocation,IPv4 4(/30),16,50,,,40,215,,,2020-03-31
+Equinix Connect Additional IP Allocation,IPv4 8(/29),32,50,,,85,215,,,2020-03-31
+Equinix Connect Additional IP Allocation,IPv4 16(/28),64,50,,,175,215,,,2020-03-31
+Equinix Connect Additional IP Allocation,IPv4 32(/27),128,50,,,350,215,,,2020-03-31
+Equinix Connect Additional IP Allocation,IPv6 (/64),10,50,,,40,215,,,2020-03-31
+Equinix Connect Additional IP Allocation,IPv6 (/48),10,50,,,40,215,,,2020-03-31

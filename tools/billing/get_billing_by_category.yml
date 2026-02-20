@@ -20,6 +20,18 @@ tool:
       description: "Billing product category to filter."
       enum: ["Power", "Interconnection", "Services", "Space"]
       examples: ["Power", "Interconnection"]
+    - name: ibx
+      type: string
+      description: "Optional IBX site filter. Leave empty to include all sites."
+      default: ""
+      enum: ["", "DB1", "DB2", "DB3"]
+      examples: ["DB2", "DB1"]
+    - name: charge_type
+      type: string
+      description: "Optional charge type filter. Leave empty to include all charge types."
+      default: ""
+      enum: ["", "RC", "NRC", "Usage", "Reseller Discount"]
+      examples: ["RC", "NRC"]
   return:
     type: array
     description: "Billing line items for the specified product category."
@@ -73,6 +85,8 @@ tool:
         total_amount
       FROM load_billing_data
       WHERE product_category = $product_category
+        AND ($ibx = '' OR ibx = $ibx)
+        AND ($charge_type = '' OR charge_type = $charge_type)
       ORDER BY trx_date, trx_number
   tests:
     - name: get_power_billing_lines

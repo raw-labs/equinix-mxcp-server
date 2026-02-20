@@ -1,6 +1,6 @@
 ## Equinix Billing Data Schema
 
-You have access to Vodafone Ireland's Equinix data center billing data across three Dublin IBX sites (DB1, DB2, DB3), covering four product categories: Space, Power, Interconnection, and Services. The data includes contract lifecycle information for pricing evolution analysis, renewal planning, and rate card benchmarking.
+You have access to Vodafone Ireland's Equinix data center billing data across three Dublin IBX sites (DB1, DB2, DB3), covering four product categories: Space, Power, Interconnection, and Services. The data includes contract lifecycle information for pricing evolution analysis, renewal planning, and rate card benchmarking. Additionally, the full 2020 global rate card and the March 2025 DB2 replacement service order are available as reference data.
 
 ### Data Tables
 
@@ -34,46 +34,57 @@ Columns:
 - new_activity (string): New (Y) or existing (N) activity flag.
 - sales_order_number (string): Sales order number.
 
-**rate_card_dublin** — 2020 rate card pricing for Dublin IBX data centers (4 rows: DB1–DB4).
-Columns:
-- ibx (string): IBX location code.
-- min_density_kva (number): Minimum power density in kVA.
-- price_per_kva_eur (number): Monthly recurring price per kVA in EUR.
-- cabinet_install_nrc_eur (number): Non-recurring cabinet installation charge in EUR.
-- cage_install_nrc_eur (number): Non-recurring cage installation charge in EUR.
-- smart_hands_hourly_eur (number): Hourly rate for smart hands services in EUR.
-- effective_date (date): Rate card effective date (2020-03-31).
+### Rate Card Reference Tables (2020 Global Rate Card)
 
-**service_order_db2_2025** — March 2025 replacement service order line items for DB2 (4 rows).
-Columns:
-- product_code (string): Equinix product code.
-- description (string): Product description.
-- ibx (string): IBX location code (DB2).
-- quantity (number): Ordered quantity.
-- uom (string): Unit of measure (kVA, Each).
-- unit_mrc_eur (number): List monthly recurring charge per unit in EUR.
-- discount_pct (number): Discount percentage (negative means surcharge).
-- effective_mrc_eur (number): Effective MRC after discount in EUR.
-- effective_date (date): Service order effective date (2025-04-01).
-- initial_term_months (number): Initial contract term in months (60).
-- product_category (string): Product category (Space, Power, Interconnection).
+**rate_card_dublin** — Dublin-only rate card pricing (4 rows: DB1–DB4). Used by the compare_to_rate_card tool.
+Columns: ibx, min_density_kva, price_per_kva_eur, cabinet_install_nrc_eur, cage_install_nrc_eur, smart_hands_hourly_eur, effective_date.
 
-### Available Tools
+**rate_card_space_power** — Global Space and Power pricing for all 200 IBXs worldwide (200 rows across Americas, APAC, EMEA). Prices in local currencies; empty price_per_kva means ICB (individual case basis).
+Columns: country, region (Americas|APAC|EMEA), metro, ibx, min_density_kva, price_per_kva, currency, effective_date.
 
-**Reference tools:**
-- list_ibx_locations — List IBX sites with line counts and total spend. No parameters.
-- list_product_categories — List product categories with line counts and total spend. No parameters.
+**rate_card_smart_hands** — Global Smart Hands hourly rates by country (25 rows).
+Columns: country, region (Americas|APAC|EMEA), rate_per_hour, currency, effective_date.
 
-**Detail tools:**
-- get_billing_by_category(product_category) — Line-level billing for a product category. Param: product_category (Power|Interconnection|Services|Space).
-- get_billing_by_ibx(ibx) — Line-level billing for an IBX site. Param: ibx (DB1|DB2|DB3).
+**rate_card_installation_nrc** — Cabinet and cage installation NRCs by country/region (29 rows). Some countries have site-specific pricing tiers.
+Columns: country, region, sites, cabinet_nrc, cage_nrc, currency, effective_date.
 
-**Summary & trend tools:**
-- get_billing_summary — Spend by product category and IBX. No parameters.
-- get_monthly_spend — Monthly spend trend by product category. No parameters.
+**rate_card_interconnection_americas** — Americas interconnection product pricing for US, Canada, Brazil, Colombia (48 rows). Products include Cross Connect, Extended Fiber, Metro Connect, Internet Exchange, Cloud Exchange, Equinix Connect, and IP Allocation.
+Columns: product, type, us_mrc, us_nrc, ca_mrc, ca_nrc, br_mrc, br_nrc, co_mrc, co_nrc, effective_date.
 
-**Analytics tools:**
-- get_pricing_by_vintage — Unit pricing grouped by agreement start year, category, IBX, and new/existing activity. Shows pricing evolution across contract vintages. No parameters.
-- get_expiring_agreements(before_date) — Agreements expiring before a given date, grouped by agreement, IBX, and category. Param: before_date (YYYY-MM-DD).
-- compare_to_rate_card — Compares actual billed Space/Power unit prices against the 2020 rate card by IBX. Shows avg/min/max billed price vs rate card price and the difference. No parameters.
-- get_contract_overview — Overview of distinct contracts with agreement dates, durations, new/existing status, and financials. No parameters.
+**rate_card_power_circuit_nrc_americas** — Americas power circuit installation NRCs by circuit type (11 rows). Covers AC single/three phase at various voltages and DC 48v.
+Columns: circuit_type, us_all_ibxs, us_da7_dc10_dc12_dc15, ca_all, br_all, co_all, effective_date.
+
+**rate_card_power_circuit_nrc_apac** — APAC power circuit installation NRCs (10 rows). Covers Hong Kong, Singapore, Australia, Japan, China, South Korea.
+Columns: circuit_type, amps, hk_nrc, sg_nrc, au_nrc, jp_nrc, cn_nrc, kr_nrc, effective_date.
+
+**rate_card_power_circuit_nrc_emea** — EMEA power circuit installation NRCs by country (16 rows). Voltage/amperage combinations across 16 European/Middle East countries.
+Columns: country, sites, 230v_16amp, 230v_32amp, 230v_63amp, 400v_16amp, 400v_32amp, 400v_63amp, currency, effective_date.
+
+### Service Order Reference Tables (March 2025 DB2 Replacement Order)
+
+**service_order_db2_2025** — Consolidated key line items (4 rows: Cage, Power, Cross Connect, Innerducts).
+Columns: product_code, description, ibx, quantity, uom, unit_mrc_eur, discount_pct, effective_mrc_eur, effective_date, initial_term_months, product_category.
+
+**service_order_db2_2025_terms** — Commercial terms as key-value pairs (19 rows). Includes order number, account details, agreement number, term lengths, price increase terms, grand total MRC/NRC, and signature dates.
+Columns: term_name, term_value.
+
+**service_order_db2_2025_ramp** — Ramp schedules for Cage and AC Power (4 rows: 3 cage stages + 1 power stage). Shows progressive capacity/pricing over the 60-month term.
+Columns: product, ramp_stage, period_months, start_date, ramp_draw_cap_pct, mrc_eur, max_allowed_kva.
+
+**service_order_db2_2025_additions** — Section A: Product Additions (6 rows). New products being added including cage, cabinets, and AC power with pricing and discounts.
+Columns: product_code, description, qty, uom, unit_nrc, unit_mrc, total_nrc, total_mrc, discount_nrc_pct, discount_mrc_pct, effective_date.
+
+**service_order_db2_2025_deletions** — Section B: Product Deletions (7 rows). Products being removed including old cage, cabinets, metered power, with serial numbers and current pricing.
+Columns: product_code, description, qty, uom, serial_number, total_nrc, current_mrc, amended_mrc, effective_date.
+
+**service_order_db2_2025_changes** — Section C: Product/Element Changes (42 rows). Cross connect and innerduct price updates showing current vs amended MRC. Most cross connects unified to EUR 125.00/month from various legacy prices.
+Columns: product_code, description, serial_number, qty, uom, action, total_nrc, current_mrc, amended_mrc, effective_date.
+
+**service_order_db2_2025_continuing** — Section D: Continuing Services (8 rows). Intra-customer cross connects and Smart Hands support plans continuing at zero cost.
+Columns: product_code, description, serial_number, qty, uom, unit_nrc, unit_mrc, total_nrc, total_mrc, effective_date.
+
+**service_order_db2_2025_section_totals** — Section totals summary (4 rows). Grand Total: MRC EUR 149,827.90, NRC EUR 0.00.
+Columns: section (A|B|C|D), description, total_nrc, total_mrc.
+
+**service_order_db2_2025_order_refs** — Order reference mapping (3 rows). Shows which old orders are being replaced by this replacement order, by product family.
+Columns: ibx, product_family, order_reference, new_order_reference.

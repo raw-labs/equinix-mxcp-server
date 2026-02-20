@@ -1,0 +1,43 @@
+product_code,description,serial_number,qty,uom,action,total_nrc,current_mrc,amended_mrc,effective_date
+EXT00006,Innerduct,,1,Each,Update,0.00,0.00,370.00,01-Apr-2025
+EXT00002,Innerduct Element,203403,1,Each,Update,,0.00,0.00,01-Apr-2025
+EXT00006,Innerduct,,3,Each,Update,0.00,0.00,1387.50,01-Apr-2025
+EXT00002,Innerduct Element,"203435,203405,203421",3,Each,Update,,0.00,0.00,01-Apr-2025
+EXT00006,Innerduct,,1,Each,Update,0.00,0.00,925.00,01-Apr-2025
+EXT00002,Innerduct Element,203446,1,Each,Update,,0.00,0.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,118.25,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Location: NA - Z-side IBX- DB2,7951.1,1,Each,Update,,118.25,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,111.50,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,8067.1,1,Each,Update,,111.50,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.54,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,7656.1,1,Each,Update,,115.54,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,118.25,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,8334.1,1,Each,Update,,118.25,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,114.79,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,6352.1,1,Each,Update,,114.79,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,114.79,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,6947.1,1,Each,Update,,114.79,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.54,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,7725.1,1,Each,Update,,115.54,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,114.79,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,6017.1,1,Each,Update,,114.79,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,114.84,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,6057.1,1,Each,Update,,114.84,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.54,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Multi-Mode Fiber - Z-side IBX- DB2,7460.1,1,Each,Update,,115.54,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,114.84,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,6710.1,1,Each,Update,,114.84,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.54,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Location: NA - Z-side IBX- DB2,7888.1,1,Each,Update,,115.54,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.59,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,8067.2,1,Each,Update,,115.59,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,137.81,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Location: NA - Z-side IBX- DB2,22271925,1,Each,Update,,137.81,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,137.81,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Location: NA - Z-side IBX- DB2,22271924,1,Each,Update,,137.81,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.54,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,7763.2,1,Each,Update,,115.54,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,115.54,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Z-side IBX- DB2,7763.1,1,Each,Update,,115.54,125.00,01-Apr-2025
+CC00001,Cross Connect,,1,Each,Update,0.00,131.25,125.00,01-Apr-2025
+CC00001,Network Cable Connection - Single Mode Fiber - Location: NA - Z-side IBX- DB2,22529875,1,Each,Update,,131.25,125.00,01-Apr-2025

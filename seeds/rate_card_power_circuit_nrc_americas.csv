@@ -1,0 +1,12 @@
+circuit_type,us_all_ibxs,us_da7_dc10_dc12_dc15,ca_all,br_all,co_all,effective_date
+AC 120v Single Phase Circuits,500,1000,647,2072,1483085,2020-03-31
+AC 208v Single Phase Circuits,500,1000,647,2072,1483085,2020-03-31
+AC 208v Three Phase Circuits 20-amp,1000,,1293,4144,2966170,2020-03-31
+AC 208v Three Phase Circuits 30-amp,1200,,1552,4972,3559404,2020-03-31
+AC 208v Three Phase Circuits 50-amp,1550,,2005,6423,4597564,2020-03-31
+AC 208v Three Phase Circuits 60-amp,1900,,2457,7873,5635723,2020-03-31
+AC 240V Single Phase Circuits (DC12 and CH3 Only),1000,,,,,2020-03-31
+AC 415V Three Phase Circuits 20-amp (DC12 and CH3 Only),1600,,,,,2020-03-31
+AC 415V Three Phase Circuits 32-amp (DC12 and CH3 Only),2000,,,,,2020-03-31
+AC 415V Three Phase Circuits 40-amp (DC12 and CH3 Only),2100,,,,,2020-03-31
+DC 48v,1000,1000,,,, 2020-03-31

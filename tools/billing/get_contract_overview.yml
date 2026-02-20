@@ -15,7 +15,19 @@ tool:
     destructiveHint: false
     idempotentHint: true
     openWorldHint: false
-  parameters: []
+  parameters:
+    - name: ibx
+      type: string
+      description: "Optional IBX site filter. Leave empty to include all sites."
+      default: ""
+      enum: ["", "DB1", "DB2", "DB3"]
+      examples: ["DB2", "DB1"]
+    - name: product_category
+      type: string
+      description: "Optional product category filter. Leave empty to include all categories."
+      default: ""
+      enum: ["", "Power", "Interconnection", "Services", "Space"]
+      examples: ["Power", "Space"]
   return:
     type: array
     description: "Contract overview rows grouped by agreement, IBX, category, and activity type."
@@ -69,6 +81,8 @@ tool:
         ROUND(SUM(line_amount), 2) AS total_line_amount,
         ROUND(SUM(total_amount), 2) AS total_amount
       FROM load_billing_data
+      WHERE ($ibx = '' OR ibx = $ibx)
+        AND ($product_category = '' OR product_category = $product_category)
       GROUP BY 1, 2, 3, 4
       ORDER BY agreement_start, ibx
   tests:

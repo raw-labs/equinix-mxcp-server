@@ -1,0 +1,5 @@
+product,ramp_stage,period_months,start_date,ramp_draw_cap_pct,mrc_eur,max_allowed_kva
+Cage,1,12,2025-04-01,80,67844.00,193.84
+Cage,2,12,2026-04-01,90,76324.50,218.07
+Cage,3,36,2027-04-01,100,84805.00,242.30
+AC Power,1,60,2025-04-01,100,60090.40,242.30

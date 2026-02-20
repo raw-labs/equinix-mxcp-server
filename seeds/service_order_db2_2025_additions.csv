@@ -1,0 +1,7 @@
+product_code,description,qty,uom,unit_nrc,unit_mrc,total_nrc,total_mrc,discount_nrc_pct,discount_mrc_pct,effective_date
+SPC00002,Private Cage With kVA Based Power,1,Each,,,0.00,144895.40,,,01-Apr-2025
+CAB00001,Cabinet - 1 kVA - Closed Cabinet,57,Each,,0.00,,0.00,,,01-Apr-2025
+CAB00001,Cabinet - 2.24 kVA - Closed Cabinet,1,Each,,0.00,,0.00,,,01-Apr-2025
+CAB00001,Cabinet - 2 kVA - Closed Cabinet,2,Each,,0.00,,0.00,,,01-Apr-2025
+CAG00001,2.4 Cage - 125 Cabinets - 242.3 kVA - Liquid Cooling - No,242.3,kVA,,350.00,,84805.00,,65.82,01-Apr-2025
+POW00001,2.5 AC Power,242.3,kVA,,248.00,,60090.40,,-5.08,01-Apr-2025

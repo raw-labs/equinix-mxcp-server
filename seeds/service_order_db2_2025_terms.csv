@@ -1,0 +1,20 @@
+term_name,term_value
+order_number,1-243453093914
+version,7
+account_name,Vodafone Ireland Ltd
+account_number,306062
+currency,EUR
+agreement_number,00074458.0
+ibx,DB2
+initial_term_months,60
+renewal_period_months,12
+non_renewal_notice_days,90
+price_increase_pct,3
+first_price_increase_after_months,12
+price_increase_notice_days,30
+renewal_price_increase_pct,3
+grand_total_mrc_eur,149827.90
+grand_total_nrc_eur,0.00
+order_valid_until,2025-03-28
+signed_date_vodafone,2025-03-30
+signed_date_equinix,2025-03-27

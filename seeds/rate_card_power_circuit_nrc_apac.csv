@@ -1,0 +1,11 @@
+circuit_type,amps,hk_nrc,sg_nrc,au_nrc,jp_nrc,cn_nrc,kr_nrc,effective_date
+105V AC Single Phase,All,,,, 65000,,,2020-03-31
+210V AC Single Phase,All,,,,110000,,,2020-03-31
+220V AC Single Phase,All,4730,,,,4170,683200,2020-03-31
+230V AC Single Phase,All,,878,420,,,,2020-03-31
+240V AC Single Phase,"6A,10A,15A,20A",,, 420,,,,2020-03-31
+240V AC Single Phase,32A,,,540,,,,2020-03-31
+210V AC 3 Phase,All,,,,165000,,,2020-03-31
+380V AC 3 Phase,All,7600,,,,5000,1092000,2020-03-31
+400V AC 3 Phase,All,,1605,,,,,2020-03-31
+415V AC 3 Phase,All,,,1920,,,,2020-03-31

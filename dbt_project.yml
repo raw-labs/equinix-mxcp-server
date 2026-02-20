@@ -14,3 +14,14 @@ snapshot-paths: ["snapshots"]
 clean-targets:
   - "target"
   - "dbt_packages"
+
+seeds:
+  equinix:
+    service_order_db2_2025_changes:
+      +column_types:
+        serial_number: varchar
+        qty: integer
+        total_nrc: double
+    service_order_db2_2025_deletions:
+      +column_types:
+        serial_number: varchar

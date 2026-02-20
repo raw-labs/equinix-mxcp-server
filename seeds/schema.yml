@@ -28,8 +28,217 @@ seeds:
         tests:
           - not_null
 
+  - name: rate_card_space_power
+    description: "2020 global rate card for Space and Power pricing across all IBXs worldwide."
+    columns:
+      - name: country
+        description: "Country name."
+        tests:
+          - not_null
+      - name: region
+        description: "Region (Americas, APAC, EMEA)."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Americas', 'APAC', 'EMEA']
+      - name: metro
+        description: "Metro area name."
+        tests:
+          - not_null
+      - name: ibx
+        description: "IBX data center location code."
+        tests:
+          - not_null
+          - unique
+      - name: min_density_kva
+        description: "Minimum cabinet power density in kVA."
+        tests:
+          - not_null
+      - name: price_per_kva
+        description: "Monthly recurring price per kVA in local currency. Empty for ICB (individual case basis) sites."
+      - name: currency
+        description: "Local currency code (USD, EUR, GBP, CAD, BRL, COP, SGD, AUD, JPY, HKD, KRW, CNY, IDR, CHF, AED, SEK, PLN)."
+        tests:
+          - not_null
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
+  - name: rate_card_smart_hands
+    description: "2020 global Smart Hands hourly rates by country."
+    columns:
+      - name: country
+        description: "Country name."
+        tests:
+          - not_null
+          - unique
+      - name: region
+        description: "Region (Americas, APAC, EMEA)."
+        tests:
+          - not_null
+      - name: rate_per_hour
+        description: "Hourly rate for Smart Hands services in local currency."
+        tests:
+          - not_null
+      - name: currency
+        description: "Local currency code."
+        tests:
+          - not_null
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
+  - name: rate_card_installation_nrc
+    description: "2020 global cabinet and cage installation NRCs by country/region."
+    columns:
+      - name: country
+        description: "Country name."
+        tests:
+          - not_null
+      - name: region
+        description: "Region (Americas, APAC, EMEA)."
+        tests:
+          - not_null
+      - name: sites
+        description: "Applicable IBX sites (All, All IBXs, or specific IBX list)."
+        tests:
+          - not_null
+      - name: cabinet_nrc
+        description: "Non-recurring cabinet installation fee per cabinet in local currency."
+        tests:
+          - not_null
+      - name: cage_nrc
+        description: "Non-recurring cage installation fee per cab-equivalent space in local currency."
+        tests:
+          - not_null
+      - name: currency
+        description: "Local currency code."
+        tests:
+          - not_null
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
+  - name: rate_card_interconnection_americas
+    description: "2020 Americas interconnection product pricing (US, Canada, Brazil, Colombia)."
+    columns:
+      - name: product
+        description: "Interconnection product name."
+        tests:
+          - not_null
+      - name: type
+        description: "Product type/speed/variant."
+        tests:
+          - not_null
+      - name: us_mrc
+        description: "US monthly recurring charge in USD."
+      - name: us_nrc
+        description: "US non-recurring charge in USD."
+      - name: ca_mrc
+        description: "Canada monthly recurring charge in CAD."
+      - name: ca_nrc
+        description: "Canada non-recurring charge in CAD."
+      - name: br_mrc
+        description: "Brazil monthly recurring charge in BRL."
+      - name: br_nrc
+        description: "Brazil non-recurring charge in BRL."
+      - name: co_mrc
+        description: "Colombia monthly recurring charge in COP."
+      - name: co_nrc
+        description: "Colombia non-recurring charge in COP."
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
+  - name: rate_card_power_circuit_nrc_americas
+    description: "2020 Americas power circuit installation NRCs by circuit type."
+    columns:
+      - name: circuit_type
+        description: "Power circuit type and voltage."
+        tests:
+          - not_null
+      - name: us_all_ibxs
+        description: "US NRC for all IBXs except DA7/DC10/DC12/DC15, in USD."
+      - name: us_da7_dc10_dc12_dc15
+        description: "US NRC for DA7/DC10/DC12/DC15 IBXs, in USD."
+      - name: ca_all
+        description: "Canada NRC for all IBXs, in CAD."
+      - name: br_all
+        description: "Brazil NRC for all IBXs, in BRL."
+      - name: co_all
+        description: "Colombia NRC for all IBXs, in COP."
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
+  - name: rate_card_power_circuit_nrc_apac
+    description: "2020 APAC power circuit installation NRCs by circuit type and country."
+    columns:
+      - name: circuit_type
+        description: "Power circuit type and voltage."
+        tests:
+          - not_null
+      - name: amps
+        description: "Amperage specification."
+        tests:
+          - not_null
+      - name: hk_nrc
+        description: "Hong Kong NRC in HKD."
+      - name: sg_nrc
+        description: "Singapore NRC in SGD."
+      - name: au_nrc
+        description: "Australia NRC in AUD."
+      - name: jp_nrc
+        description: "Japan NRC in JPY."
+      - name: cn_nrc
+        description: "China NRC in CNY."
+      - name: kr_nrc
+        description: "South Korea NRC in KRW."
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
+  - name: rate_card_power_circuit_nrc_emea
+    description: "2020 EMEA power circuit installation NRCs by country and voltage/amperage."
+    columns:
+      - name: country
+        description: "Country name."
+        tests:
+          - not_null
+      - name: sites
+        description: "Applicable sites."
+        tests:
+          - not_null
+      - name: 230v_16amp
+        description: "NRC for 230v 16-amp circuit in local currency."
+      - name: 230v_32amp
+        description: "NRC for 230v 32-amp circuit in local currency."
+      - name: 230v_63amp
+        description: "NRC for 230v 63-amp circuit in local currency."
+      - name: 400v_16amp
+        description: "NRC for 400v 16-amp circuit in local currency."
+      - name: 400v_32amp
+        description: "NRC for 400v 32-amp circuit in local currency."
+      - name: 400v_63amp
+        description: "NRC for 400v 63-amp circuit in local currency."
+      - name: currency
+        description: "Local currency code."
+        tests:
+          - not_null
+      - name: effective_date
+        description: "Rate card effective date."
+        tests:
+          - not_null
+
   - name: service_order_db2_2025
-    description: "March 2025 replacement service order line items for DB2."
+    description: "March 2025 replacement service order key line items for DB2 (consolidated)."
     columns:
       - name: product_code
         description: "Equinix product code."
@@ -72,5 +281,227 @@ seeds:
           - not_null
       - name: product_category
         description: "Product category (Space, Power, Interconnection)."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_terms
+    description: "March 2025 service order commercial terms for DB2 (key-value pairs)."
+    columns:
+      - name: term_name
+        description: "Name of the commercial term."
+        tests:
+          - not_null
+          - unique
+      - name: term_value
+        description: "Value of the commercial term."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_ramp
+    description: "March 2025 service order ramp schedules for DB2 cage and power."
+    columns:
+      - name: product
+        description: "Product type (Cage, AC Power)."
+        tests:
+          - not_null
+      - name: ramp_stage
+        description: "Ramp stage number."
+        tests:
+          - not_null
+      - name: period_months
+        description: "Duration of the ramp stage in months."
+        tests:
+          - not_null
+      - name: start_date
+        description: "Stage start date."
+        tests:
+          - not_null
+      - name: ramp_draw_cap_pct
+        description: "Ramp draw cap as percentage of maximum."
+        tests:
+          - not_null
+      - name: mrc_eur
+        description: "Monthly recurring charge in EUR for this stage."
+        tests:
+          - not_null
+      - name: max_allowed_kva
+        description: "Maximum allowed power draw in kVA."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_additions
+    description: "March 2025 service order Section A: Product Additions for DB2."
+    columns:
+      - name: product_code
+        description: "Equinix product code."
+        tests:
+          - not_null
+      - name: description
+        description: "Product description."
+        tests:
+          - not_null
+      - name: qty
+        description: "Quantity."
+        tests:
+          - not_null
+      - name: uom
+        description: "Unit of measure."
+        tests:
+          - not_null
+      - name: unit_nrc
+        description: "Unit non-recurring charge."
+      - name: unit_mrc
+        description: "Unit monthly recurring charge."
+      - name: total_nrc
+        description: "Total non-recurring charges."
+      - name: total_mrc
+        description: "Total monthly recurring charges."
+      - name: discount_nrc_pct
+        description: "NRC discount percentage."
+      - name: discount_mrc_pct
+        description: "MRC discount percentage."
+      - name: effective_date
+        description: "Effective date."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_deletions
+    description: "March 2025 service order Section B: Product Deletions for DB2."
+    columns:
+      - name: product_code
+        description: "Equinix product code."
+        tests:
+          - not_null
+      - name: description
+        description: "Product description."
+        tests:
+          - not_null
+      - name: qty
+        description: "Quantity."
+        tests:
+          - not_null
+      - name: uom
+        description: "Unit of measure."
+        tests:
+          - not_null
+      - name: serial_number
+        description: "Asset serial number."
+      - name: total_nrc
+        description: "Total non-recurring charges."
+      - name: current_mrc
+        description: "Current monthly recurring charge before deletion."
+      - name: amended_mrc
+        description: "Amended monthly recurring charge (0.00 for deletions)."
+      - name: effective_date
+        description: "Effective date of deletion."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_changes
+    description: "March 2025 service order Section C: Product/Element Changes for DB2 (cross connect and innerduct price updates)."
+    columns:
+      - name: product_code
+        description: "Equinix product code (CC00001 for cross connects, EXT00006/EXT00002 for innerducts)."
+        tests:
+          - not_null
+      - name: description
+        description: "Product or element description."
+        tests:
+          - not_null
+      - name: serial_number
+        description: "Asset serial number (for sub-elements)."
+      - name: qty
+        description: "Quantity."
+        tests:
+          - not_null
+      - name: uom
+        description: "Unit of measure."
+        tests:
+          - not_null
+      - name: action
+        description: "Action type (Update)."
+        tests:
+          - not_null
+      - name: total_nrc
+        description: "Total non-recurring charges."
+      - name: current_mrc
+        description: "Current monthly recurring charge before amendment."
+      - name: amended_mrc
+        description: "Amended monthly recurring charge after amendment."
+      - name: effective_date
+        description: "Effective date of change."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_continuing
+    description: "March 2025 service order Section D: Continuing Services for DB2 (unchanged services at zero cost)."
+    columns:
+      - name: product_code
+        description: "Equinix product code."
+        tests:
+          - not_null
+      - name: description
+        description: "Product description."
+        tests:
+          - not_null
+      - name: serial_number
+        description: "Asset serial number."
+      - name: qty
+        description: "Quantity."
+        tests:
+          - not_null
+      - name: uom
+        description: "Unit of measure."
+        tests:
+          - not_null
+      - name: unit_nrc
+        description: "Unit non-recurring charge."
+      - name: unit_mrc
+        description: "Unit monthly recurring charge."
+      - name: total_nrc
+        description: "Total non-recurring charges."
+      - name: total_mrc
+        description: "Total monthly recurring charges."
+      - name: effective_date
+        description: "Effective date."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_order_refs
+    description: "March 2025 service order: mapping of old order references being replaced by this order."
+    columns:
+      - name: ibx
+        description: "IBX data center location code."
+        tests:
+          - not_null
+      - name: product_family
+        description: "Product family (Space & Power, Interconnection, Services)."
+        tests:
+          - not_null
+      - name: order_reference
+        description: "Previous order reference number(s) being replaced."
+      - name: new_order_reference
+        description: "New order reference number."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025_section_totals
+    description: "March 2025 service order section totals summary. Grand total MRC: EUR 149,827.90."
+    columns:
+      - name: section
+        description: "Section letter (A, B, C, D)."
+        tests:
+          - not_null
+          - unique
+      - name: description
+        description: "Section description."
+        tests:
+          - not_null
+      - name: total_nrc
+        description: "Section total non-recurring charges in EUR."
+        tests:
+          - not_null
+      - name: total_mrc
+        description: "Section total monthly recurring charges in EUR."
         tests:
           - not_null

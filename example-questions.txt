@@ -1,0 +1,36 @@
+## Example Questions for Equinix Billing Analytics
+
+### Overview & Discovery
+- What IBX sites does Vodafone Ireland have, and how much do we spend at each?
+- What product categories are we billed for, and what's the total spend per category?
+- Give me a high-level breakdown of our billing by product category and IBX location.
+
+### Spend Analysis
+- What is our total monthly spend, and how has it trended over time?
+- Which month had the highest total billing amount?
+- How does our Space spend compare to our Power spend month over month?
+- What percentage of our total spend goes to Interconnection vs Space?
+
+### Pricing & Benchmarking
+- How do our actual billed prices for Space and Power compare to the 2020 rate card?
+- Are we paying above or below the rate card at each Dublin IBX?
+- Which IBX has the biggest gap between billed price and rate card pricing?
+- How have our unit prices evolved across different contract vintages?
+- Are newer contracts priced higher or lower than older ones?
+
+### Contract Management
+- What does our contract portfolio look like across all IBX sites?
+- Which agreements are expiring before the end of 2026?
+- What is our total financial exposure from contracts expiring in the next 12 months?
+- How many contracts are marked as new activity vs existing?
+
+### Site-Specific Analysis
+- Show me all billing details for DB2.
+- What are the Power charges at DB3?
+- Which site has the most billing line items?
+- Compare the spend across DB1, DB2, and DB3.
+
+### Category Deep Dives
+- What are the individual line items for our Interconnection charges?
+- Break down our Services category — what are we paying for?
+- What recurring vs non-recurring charges do we have for Power?

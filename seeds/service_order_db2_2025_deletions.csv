@@ -1,0 +1,8 @@
+product_code,description,qty,uom,serial_number,total_nrc,current_mrc,amended_mrc,effective_date
+SPC00003,Private Cage With Metered Power kVA Based Draw Cap,1,Each,24_005206,0.00,34864.15,0.00,31-Mar-2025
+CAB00001,Cabinet - 1 kVA - Closed Cabinet,57,Each,DB2:292868,0.00,0.00,0.00,31-Mar-2025
+CAB00001,Cabinet - 2.24 kVA - Closed Cabinet,1,Each,1307:100084041,0.00,0.00,0.00,31-Mar-2025
+CAB00001,Cabinet - 2 kVA - Closed Cabinet,2,Each,1401-20460402;1402-20460403,0.00,0.00,0.00,31-Mar-2025
+CAG00001,Cage - 125 Cabinets - 242.3 kVA - Liquid Cooling - No,242.3,kVA,DB2:DT-188458,0.00,34864.15,0.00,31-Mar-2025
+POW00010,Metered Power - Non-Standard,1,kWh,DB2.6.00000280,0.00,0.3316,0.00,31-Mar-2025
+POW00001,AC Power,242.3,kVA,2_15_0202797309,0.00,0.00,0.00,31-Mar-2025

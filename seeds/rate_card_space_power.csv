@@ -1,0 +1,201 @@
+country,region,metro,ibx,min_density_kva,price_per_kva,currency,effective_date
+USA,Americas,Atlanta,AT1,5.0,315,USD,2020-03-31
+USA,Americas,Atlanta,AT2,2.4,630,USD,2020-03-31
+USA,Americas,Atlanta,AT3,2.4,630,USD,2020-03-31
+USA,Americas,Atlanta,AT4,2.4,290,USD,2020-03-31
+USA,Americas,Atlanta,AT5,5.0,290,USD,2020-03-31
+USA,Americas,Boston,BO2,5.0,290,USD,2020-03-31
+USA,Americas,Chicago,CH1,2.4,735,USD,2020-03-31
+USA,Americas,Chicago,CH2,2.4,735,USD,2020-03-31
+USA,Americas,Chicago,CH3,4.0,315,USD,2020-03-31
+USA,Americas,Chicago,CH4,4.0,735,USD,2020-03-31
+USA,Americas,Chicago,CH7,2.4,290,USD,2020-03-31
+USA,Americas,Culpeper,CU1,4.0,525,USD,2020-03-31
+USA,Americas,Culpeper,CU2,4.0,420,USD,2020-03-31
+USA,Americas,Culpeper,CU3,4.0,315,USD,2020-03-31
+USA,Americas,Culpeper,CU4,4.0,475,USD,2020-03-31
+USA,Americas,Dallas,DA1,2.4,580,USD,2020-03-31
+USA,Americas,Dallas,DA2,3.0,580,USD,2020-03-31
+USA,Americas,Dallas,DA3,2.4,580,USD,2020-03-31
+USA,Americas,Dallas,DA4,2.4,580,USD,2020-03-31
+USA,Americas,Dallas,DA6,4.0,580,USD,2020-03-31
+USA,Americas,Dallas,DA7,6.0,290,USD,2020-03-31
+USA,Americas,Dallas,DA9,2.4,290,USD,2020-03-31
+USA,Americas,Dallas,DA11,5.0,420,USD,2020-03-31
+USA,Americas,Ashburn,DC1,2.5,580,USD,2020-03-31
+USA,Americas,Ashburn,DC2,2.5,630,USD,2020-03-31
+USA,Americas,Ashburn,DC3,2.5,395,USD,2020-03-31
+USA,Americas,Ashburn,DC4,4.0,475,USD,2020-03-31
+USA,Americas,Ashburn,DC5,4.0,475,USD,2020-03-31
+USA,Americas,Ashburn,DC6,5.0,475,USD,2020-03-31
+USA,Americas,Ashburn,DC7,4.0,340,USD,2020-03-31
+USA,Americas,Ashburn,DC10,4.0,290,USD,2020-03-31
+USA,Americas,Ashburn,DC11,5.0,475,USD,2020-03-31
+USA,Americas,Ashburn,DC12,5.0,265,USD,2020-03-31
+USA,Americas,Ashburn,DC13,4.0,290,USD,2020-03-31
+USA,Americas,Ashburn,DC14,4.0,315,USD,2020-03-31
+USA,Americas,Ashburn,DC15,5.0,265,USD,2020-03-31
+USA,Americas,Denver,DE1,2.4,420,USD,2020-03-31
+USA,Americas,Denver,DE2,5.0,315,USD,2020-03-31
+USA,Americas,Houston,HO1,5.0,290,USD,2020-03-31
+USA,Americas,Los Angeles,LA1,3.0,630,USD,2020-03-31
+USA,Americas,Los Angeles,LA2,2.4,445,USD,2020-03-31
+USA,Americas,Los Angeles,LA3,2.4,315,USD,2020-03-31
+USA,Americas,Los Angeles,LA4,4.0,315,USD,2020-03-31
+USA,Americas,Los Angeles,LA7,2.4,290,USD,2020-03-31
+USA,Americas,Miami,MI1,5.0,475,USD,2020-03-31
+USA,Americas,Miami,MI2,2.4,525,USD,2020-03-31
+USA,Americas,Miami,MI3,4.0,580,USD,2020-03-31
+USA,Americas,Miami,MI6,2.4,315,USD,2020-03-31
+USA,Americas,New York,NY1,2.4,630,USD,2020-03-31
+USA,Americas,New York,NY2,2.4,395,USD,2020-03-31
+USA,Americas,New York,NY4,5.0,630,USD,2020-03-31
+USA,Americas,New York,NY5,5.0,525,USD,2020-03-31
+USA,Americas,New York,NY7,4.0,290,USD,2020-03-31
+USA,Americas,New York,NY8,2.4,630,USD,2020-03-31
+USA,Americas,New York,NY9,2.4,735,USD,2020-03-31
+USA,Americas,New York,NY11,5.0,370,USD,2020-03-31
+USA,Americas,New York,NY13,2.4,525,USD,2020-03-31
+USA,Americas,Philadelphia,PH1,3.0,500,USD,2020-03-31
+USA,Americas,Seattle,SE2,2.4,500,USD,2020-03-31
+USA,Americas,Seattle,SE3,4.0,500,USD,2020-03-31
+USA,Americas,Seattle,SE4,5.0,290,USD,2020-03-31
+USA,Americas,Silicon Valley,SV1,2.4,735,USD,2020-03-31
+USA,Americas,Silicon Valley,SV2,5.0,315,USD,2020-03-31
+USA,Americas,Silicon Valley,SV3,2.4,315,USD,2020-03-31
+USA,Americas,Silicon Valley,SV4,2.4,315,USD,2020-03-31
+USA,Americas,Silicon Valley,SV5,5.0,500,USD,2020-03-31
+USA,Americas,Silicon Valley,SV6,4.0,315,USD,2020-03-31
+USA,Americas,Silicon Valley,SV8,2.4,1050,USD,2020-03-31
+USA,Americas,Silicon Valley,SV10,5.0,500,USD,2020-03-31
+USA,Americas,Silicon Valley,SV14,5.0,315,USD,2020-03-31
+USA,Americas,Silicon Valley,SV15,5.0,315,USD,2020-03-31
+USA,Americas,Silicon Valley,SV16,5.0,315,USD,2020-03-31
+Canada,Americas,Toronto,TR1,2.4,755,CAD,2020-03-31
+Canada,Americas,Toronto,TR2,5.0,560,CAD,2020-03-31
+Colombia,Americas,Bogota,BG1,2.4,1417500,COP,2020-03-31
+Brazil,Americas,Rio de Janeiro,RJ1,3.0,3185,BRL,2020-03-31
+Brazil,Americas,Rio de Janeiro,RJ2,5.0,1585,BRL,2020-03-31
+Brazil,Americas,Sao Paulo,SP1,3.0,3185,BRL,2020-03-31
+Brazil,Americas,Sao Paulo,SP2,4.0,2870,BRL,2020-03-31
+Brazil,Americas,Sao Paulo,SP3,5.0,1525,BRL,2020-03-31
+Brazil,Americas,Sao Paulo,SP4,5.0,1910,BRL,2020-03-31
+Mexico,Americas,Mexico City,MX2,5.0,580,USD,2020-03-31
+China,APAC,Shanghai,SH5,3.0,,CNY,2020-03-31
+China,APAC,Shanghai,SH6,3.5,,CNY,2020-03-31
+Singapore,APAC,Singapore,SG1,3.0,915,SGD,2020-03-31
+Singapore,APAC,Singapore,SG2,3.52,610,SGD,2020-03-31
+Singapore,APAC,Singapore,SG3,4.0,780,SGD,2020-03-31
+Singapore,APAC,Singapore,SG4,4.0,710,SGD,2020-03-31
+Australia,APAC,Sydney,SY1,2.0,670,AUD,2020-03-31
+Australia,APAC,Sydney,SY2,3.54,570,AUD,2020-03-31
+Australia,APAC,Sydney,SY3,3.84,500,AUD,2020-03-31
+Australia,APAC,Sydney,SY4,3.63,500,AUD,2020-03-31
+Australia,APAC,Sydney,SY5,3.6,500,AUD,2020-03-31
+Australia,APAC,Sydney,SY6,3.6,,AUD,2020-03-31
+Australia,APAC,Sydney,SY7,3.7,,AUD,2020-03-31
+Australia,APAC,Melbourne,ME1,3.5,490,AUD,2020-03-31
+Australia,APAC,Melbourne,ME2,3.3,490,AUD,2020-03-31
+Australia,APAC,Melbourne,ME4,3.7,490,AUD,2020-03-31
+Australia,APAC,Melbourne,ME5,2.0,670,AUD,2020-03-31
+Australia,APAC,Perth,PE1,2.0,670,AUD,2020-03-31
+Australia,APAC,Perth,PE2,3.4,500,AUD,2020-03-31
+Australia,APAC,Canberra,CA1,3.4,500,AUD,2020-03-31
+Australia,APAC,Brisbane,BR1,2.0,670,AUD,2020-03-31
+Australia,APAC,Adelaide,AE1,2.0,670,AUD,2020-03-31
+Japan,APAC,Tokyo,TY1,3.33,48490,JPY,2020-03-31
+Japan,APAC,Tokyo,TY2,3.33,94500,JPY,2020-03-31
+Japan,APAC,Tokyo,TY3,3.33,86100,JPY,2020-03-31
+Japan,APAC,Tokyo,TY4,3.5,86100,JPY,2020-03-31
+Japan,APAC,Tokyo,TY5,3.33,73500,JPY,2020-03-31
+Japan,APAC,Tokyo,TY6,3.3,56700,JPY,2020-03-31
+Japan,APAC,Tokyo,TY7,3.5,51450,JPY,2020-03-31
+Japan,APAC,Tokyo,TY8,3.7,51450,JPY,2020-03-31
+Japan,APAC,Tokyo,TY9,4.3,51450,JPY,2020-03-31
+Japan,APAC,Tokyo,TY10,6.4,31500,JPY,2020-03-31
+Japan,APAC,Tokyo,TY11,3.9,69300,JPY,2020-03-31
+Japan,APAC,Osaka,OS1,3.0,55105,JPY,2020-03-31
+Indonesia,APAC,Jakarta,JK1,3.0,,IDR,2020-03-31
+South Korea,APAC,Seoul,SL1,4.0,525000,KRW,2020-03-31
+Hong Kong,APAC,Hong Kong,HK1,3.52,3885,HKD,2020-03-31
+Hong Kong,APAC,Hong Kong,HK2,3.52,3625,HKD,2020-03-31
+Hong Kong,APAC,Hong Kong,HK3,3.0,3625,HKD,2020-03-31
+Hong Kong,APAC,Hong Kong,HK4,3.9,3675,HKD,2020-03-31
+Hong Kong,APAC,Hong Kong,HK5,3.5,3780,HKD,2020-03-31
+France,EMEA,Paris,PA1,4.0,225,EUR,2020-03-31
+France,EMEA,Paris,PA2,4.0,350,EUR,2020-03-31
+France,EMEA,Paris,PA3,4.0,350,EUR,2020-03-31
+France,EMEA,Paris,PA4,4.0,350,EUR,2020-03-31
+France,EMEA,Paris,PA5,3.5,285,EUR,2020-03-31
+France,EMEA,Paris,PA6,4.0,315,EUR,2020-03-31
+France,EMEA,Paris,PA7,3.0,285,EUR,2020-03-31
+Germany,EMEA,Frankfurt,FR2,4.5,400,EUR,2020-03-31
+Germany,EMEA,Frankfurt,FR4,4.5,400,EUR,2020-03-31
+Germany,EMEA,Frankfurt,FR5,3.0,450,EUR,2020-03-31
+Germany,EMEA,Frankfurt,FR6,5.0,400,EUR,2020-03-31
+Germany,EMEA,Frankfurt,FR7,4.0,390,EUR,2020-03-31
+Germany,EMEA,Dusseldorf,DU1,3.0,390,EUR,2020-03-31
+Germany,EMEA,Hamburg,HH1,4.0,360,EUR,2020-03-31
+Germany,EMEA,Munich,MU1,4.0,390,EUR,2020-03-31
+Germany,EMEA,Munich,MU3,4.0,390,EUR,2020-03-31
+Netherlands,EMEA,Enschede,EN1,3.0,285,EUR,2020-03-31
+Netherlands,EMEA,Zwolle,ZW1,3.0,285,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM1,4.0,335,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM2,4.5,315,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM3,5.0,350,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM4,5.5,315,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM5,3.5,350,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM6,6.0,210,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM7,5.0,350,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM8,2.5,335,EUR,2020-03-31
+Netherlands,EMEA,Amsterdam,AM11,4.0,335,EUR,2020-03-31
+Switzerland,EMEA,Zurich,ZH1,1.5,680,CHF,2020-03-31
+Switzerland,EMEA,Zurich,ZH2,1.5,680,CHF,2020-03-31
+Switzerland,EMEA,Zurich,ZH4,4.0,600,CHF,2020-03-31
+Switzerland,EMEA,Zurich,ZH5,4.0,495,CHF,2020-03-31
+Switzerland,EMEA,Geneva,GV1,3.0,580,CHF,2020-03-31
+Switzerland,EMEA,Geneva,GV2,4.0,495,CHF,2020-03-31
+UAE,EMEA,Dubai,DX1,4.0,3005,AED,2020-03-31
+UAE,EMEA,Dubai,DX2,3.0,3465,AED,2020-03-31
+UAE,EMEA,Abu Dhabi,AD1,5.0,2940,AED,2020-03-31
+United Kingdom,EMEA,London,LD3,4.0,330,GBP,2020-03-31
+United Kingdom,EMEA,London,LD4,4.0,525,GBP,2020-03-31
+United Kingdom,EMEA,London,LD5,4.5,440,GBP,2020-03-31
+United Kingdom,EMEA,London,LD6,4.0,440,GBP,2020-03-31
+United Kingdom,EMEA,London,LD7,4.5,440,GBP,2020-03-31
+United Kingdom,EMEA,London,LD8,3.0,415,GBP,2020-03-31
+United Kingdom,EMEA,London,LD9,5.0,340,GBP,2020-03-31
+United Kingdom,EMEA,London,LD10,4.5,415,GBP,2020-03-31
+United Kingdom,EMEA,Manchester,MA1,2.0,680,GBP,2020-03-31
+United Kingdom,EMEA,Manchester,MA2,4.0,370,GBP,2020-03-31
+United Kingdom,EMEA,Manchester,MA3,4.0,415,GBP,2020-03-31
+United Kingdom,EMEA,Manchester,MA4,4.0,310,GBP,2020-03-31
+Ireland,EMEA,Dublin,DB1,2.0,505,EUR,2020-03-31
+Ireland,EMEA,Dublin,DB2,2.5,505,EUR,2020-03-31
+Ireland,EMEA,Dublin,DB3,4.0,380,EUR,2020-03-31
+Ireland,EMEA,Dublin,DB4,4.0,350,EUR,2020-03-31
+Sweden,EMEA,Stockholm,SK1,3.0,5985,SEK,2020-03-31
+Sweden,EMEA,Stockholm,SK2,3.5,4200,SEK,2020-03-31
+Sweden,EMEA,Stockholm,SK3,2.5,3045,SEK,2020-03-31
+Finland,EMEA,Helsinki,HE1,3.0,305,EUR,2020-03-31
+Finland,EMEA,Helsinki,HE2,3.5,305,EUR,2020-03-31
+Finland,EMEA,Helsinki,HE3,3.5,325,EUR,2020-03-31
+Finland,EMEA,Helsinki,HE4,10.0,525,EUR,2020-03-31
+Finland,EMEA,Helsinki,HE5,3.5,325,EUR,2020-03-31
+Finland,EMEA,Helsinki,HE6,3.0,335,EUR,2020-03-31
+Finland,EMEA,Helsinki,HE7,4.0,335,EUR,2020-03-31
+Poland,EMEA,Warsaw,WA1,4.0,1525,PLN,2020-03-31
+Poland,EMEA,Warsaw,WA2,3.0,1260,PLN,2020-03-31
+Poland,EMEA,Warsaw,WA3,4.0,1365,PLN,2020-03-31
+Italy,EMEA,Milan,ML2,3.0,390,EUR,2020-03-31
+Italy,EMEA,Milan,ML3,4.0,335,EUR,2020-03-31
+Italy,EMEA,Milan,ML4,3.0,420,EUR,2020-03-31
+Turkey,EMEA,Istanbul,IL2,4.2,285,USD,2020-03-31
+Bulgaria,EMEA,Sofia,SO1,2.0,250,EUR,2020-03-31
+Bulgaria,EMEA,Sofia,SO2,4.0,250,EUR,2020-03-31
+Oman,EMEA,Muscat,MC1,4.0,820,USD,2020-03-31
+Portugal,EMEA,Lisbon,LS1,3.2,325,EUR,2020-03-31
+Spain,EMEA,Madrid,MD1,2.0,630,EUR,2020-03-31
+Spain,EMEA,Madrid,MD2,4.0,395,EUR,2020-03-31
+Spain,EMEA,Barcelona,BA1,4.0,400,EUR,2020-03-31
+Spain,EMEA,Seville,SA1,4.0,340,EUR,2020-03-31
