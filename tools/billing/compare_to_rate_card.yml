@@ -1,0 +1,71 @@
+mxcp: 1
+tool:
+  name: compare_to_rate_card
+  description: |
+    Compare actual billed Space and Power unit prices against the 2020 Dublin rate card.
+    Joins billing data with the rate card seed to show price differences by IBX and category.
+    Use this to benchmark current billing against list pricing and identify discounts or premiums.
+  tags:
+    - billing
+    - analytics
+    - benchmarking
+  annotations:
+    title: "Rate Card Comparison"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
+  parameters: []
+  return:
+    type: array
+    description: "Comparison of billed prices against rate card by IBX and product category."
+    items:
+      type: object
+      description: "Rate card comparison for one IBX-category combination."
+      properties:
+        ibx:
+          type: string
+          description: "IBX data center location code."
+        product_category:
+          type: string
+          description: "Product category (Space or Power)."
+        rate_card_price:
+          type: number
+          description: "Rate card price per kVA in EUR from the 2020 rate card."
+        avg_billed_price:
+          type: number
+          description: "Average billed unit price, rounded to 2 decimal places."
+        min_billed_price:
+          type: number
+          description: "Minimum billed unit price, rounded to 2 decimal places."
+        max_billed_price:
+          type: number
+          description: "Maximum billed unit price, rounded to 2 decimal places."
+        line_count:
+          type: integer
+          description: "Number of billing lines in this comparison group."
+        price_difference:
+          type: number
+          description: "Difference between average billed price and rate card price (positive = above rate card)."
+  source:
+    code: |
+      SELECT
+        b.ibx,
+        b.product_category,
+        r.price_per_kva_eur AS rate_card_price,
+        ROUND(AVG(b.unit_price), 2) AS avg_billed_price,
+        ROUND(MIN(b.unit_price), 2) AS min_billed_price,
+        ROUND(MAX(b.unit_price), 2) AS max_billed_price,
+        CAST(COUNT(*) AS INTEGER) AS line_count,
+        ROUND(AVG(b.unit_price) - r.price_per_kva_eur, 2) AS price_difference
+      FROM load_billing_data b
+      JOIN rate_card_dublin r ON b.ibx = r.ibx
+      WHERE b.product_category IN ('Space', 'Power')
+        AND b.unit_price IS NOT NULL AND b.unit_price != 0
+      GROUP BY b.ibx, b.product_category, r.price_per_kva_eur
+      ORDER BY b.ibx, b.product_category
+  tests:
+    - name: rate_card_comparison_group_count
+      description: "Returns all IBX-category comparison rows."
+      arguments: []
+      result_length: 6

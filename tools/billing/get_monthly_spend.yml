@@ -4,20 +4,36 @@ tool:
   description: |
     Return monthly billing spend trend by product category.
     Each record includes a year-month bucket, summed total amount, and line count.
+    Use this for spend trend analysis over time.
+  tags:
+    - billing
+    - trend
+  annotations:
+    title: "Monthly Spend Trend"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
   parameters: []
   return:
     type: array
+    description: "Monthly spend rows grouped by month and product category."
     items:
       type: object
+      description: "Aggregated spend for one month-category combination."
       properties:
         month:
           type: string
+          description: "Year-month bucket (YYYY-MM format)."
         product_category:
           type: string
+          description: "Billing product category."
         total_amount:
           type: number
+          description: "Sum of total amounts including GST for this month and category."
         line_count:
           type: integer
+          description: "Number of billing line items in this group."
   source:
     code: |
       SELECT

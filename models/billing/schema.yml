@@ -68,3 +68,27 @@ models:
         description: "Customer account name."
         tests:
           - not_null
+      - name: billing_agreement_start
+        description: "Start date of the billing agreement."
+        tests:
+          - not_null
+      - name: billing_agreement_end
+        description: "End date of the billing agreement."
+        tests:
+          - not_null
+      - name: service_start_date
+        description: "Date the service began."
+      - name: installation_date
+        description: "Date the equipment was installed."
+      - name: contract_duration
+        description: "Contract duration in months (nullable, ~75% populated)."
+      - name: new_activity
+        description: "Flag indicating new (Y) or existing (N) activity."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Y", "N"]
+      - name: sales_order_number
+        description: "Sales order number associated with the billing line."
+        tests:
+          - not_null

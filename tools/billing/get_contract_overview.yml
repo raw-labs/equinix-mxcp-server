@@ -1,0 +1,78 @@
+mxcp: 1
+tool:
+  name: get_contract_overview
+  description: |
+    Overview of distinct contracts with agreement dates, durations, and new/existing status.
+    Groups billing data by agreement, IBX, category, and activity type.
+    Use this for a comprehensive view of the contract portfolio and its financial composition.
+  tags:
+    - billing
+    - analytics
+    - contracts
+  annotations:
+    title: "Contract Overview"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
+  parameters: []
+  return:
+    type: array
+    description: "Contract overview rows grouped by agreement, IBX, category, and activity type."
+    items:
+      type: object
+      description: "Summary of a distinct contract grouping."
+      properties:
+        billing_agreement:
+          type: string
+          description: "Billing agreement identifier."
+        ibx:
+          type: string
+          description: "IBX data center location code."
+        product_category:
+          type: string
+          description: "Product category."
+        new_activity:
+          type: string
+          description: "New activity flag (Y = new, N = existing)."
+        agreement_start:
+          type: string
+          format: date
+          description: "Earliest agreement start date in this group."
+        agreement_end:
+          type: string
+          format: date
+          description: "Latest agreement end date in this group."
+        contract_duration_months:
+          type: number
+          description: "Maximum contract duration in months for this group."
+        line_count:
+          type: integer
+          description: "Number of billing lines in this contract group."
+        total_line_amount:
+          type: number
+          description: "Sum of net line amounts, rounded to 2 decimal places."
+        total_amount:
+          type: number
+          description: "Sum of total amounts including GST, rounded to 2 decimal places."
+  source:
+    code: |
+      SELECT
+        billing_agreement,
+        ibx,
+        product_category,
+        new_activity,
+        MIN(billing_agreement_start) AS agreement_start,
+        MAX(billing_agreement_end) AS agreement_end,
+        MAX(contract_duration) AS contract_duration_months,
+        CAST(COUNT(*) AS INTEGER) AS line_count,
+        ROUND(SUM(line_amount), 2) AS total_line_amount,
+        ROUND(SUM(total_amount), 2) AS total_amount
+      FROM load_billing_data
+      GROUP BY 1, 2, 3, 4
+      ORDER BY agreement_start, ibx
+  tests:
+    - name: contract_overview_group_count
+      description: "Returns all contract-IBX-category-activity combinations."
+      arguments: []
+      result_length: 181

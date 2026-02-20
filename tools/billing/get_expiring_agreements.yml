@@ -1,0 +1,82 @@
+mxcp: 1
+tool:
+  name: get_expiring_agreements
+  description: |
+    Find billing agreements expiring before a given date.
+    Groups billing lines by agreement, showing start/end dates, duration, IBX, and category.
+    Use this to identify upcoming contract renewals and their financial exposure.
+  tags:
+    - billing
+    - analytics
+    - contracts
+  annotations:
+    title: "Expiring Agreements"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
+  parameters:
+    - name: before_date
+      type: string
+      format: date
+      description: "Find agreements expiring on or before this date (YYYY-MM-DD)."
+      examples: ["2026-01-01", "2025-12-31"]
+  return:
+    type: array
+    description: "Agreements expiring before the specified date, grouped by agreement, IBX, and category."
+    items:
+      type: object
+      description: "Summary of an expiring agreement."
+      properties:
+        billing_agreement:
+          type: string
+          description: "Billing agreement identifier."
+        billing_agreement_start:
+          type: string
+          format: date
+          description: "Agreement start date."
+        billing_agreement_end:
+          type: string
+          format: date
+          description: "Agreement end date."
+        contract_duration:
+          type: number
+          description: "Contract duration in months."
+        ibx:
+          type: string
+          description: "IBX data center location code."
+        product_category:
+          type: string
+          description: "Product category."
+        line_count:
+          type: integer
+          description: "Number of billing lines in this agreement group."
+        total_line_amount:
+          type: number
+          description: "Sum of net line amounts, rounded to 2 decimal places."
+        total_amount:
+          type: number
+          description: "Sum of total amounts including GST, rounded to 2 decimal places."
+  source:
+    code: |
+      SELECT
+        billing_agreement,
+        billing_agreement_start,
+        billing_agreement_end,
+        contract_duration,
+        ibx,
+        product_category,
+        CAST(COUNT(*) AS INTEGER) AS line_count,
+        ROUND(SUM(line_amount), 2) AS total_line_amount,
+        ROUND(SUM(total_amount), 2) AS total_amount
+      FROM load_billing_data
+      WHERE billing_agreement_end <= CAST($before_date AS DATE)
+      GROUP BY 1, 2, 3, 4, 5, 6
+      ORDER BY billing_agreement_end, ibx
+  tests:
+    - name: expiring_agreements_before_2026
+      description: "Returns agreements expiring before 2026-01-01."
+      arguments:
+        - key: before_date
+          value: "2026-01-01"
+      result_length: 201

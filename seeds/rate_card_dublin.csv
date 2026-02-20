@@ -1,0 +1,5 @@
+ibx,min_density_kva,price_per_kva_eur,cabinet_install_nrc_eur,cage_install_nrc_eur,smart_hands_hourly_eur,effective_date
+DB1,2.0,505,1600,3000,120,2020-03-31
+DB2,2.5,505,1600,3000,120,2020-03-31
+DB3,4.0,380,1600,3000,120,2020-03-31
+DB4,4.0,350,1600,3000,120,2020-03-31

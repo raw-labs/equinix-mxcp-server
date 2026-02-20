@@ -38,6 +38,13 @@ def model(dbt, session):
         "Recurring Charge From Date": "recurring_charge_from",
         "Recurring Charge To Date": "recurring_charge_to",
         "Customer Name": "customer_name",
+        "Billing Agreement Start Date": "billing_agreement_start",
+        "Billing Agreement End Date": "billing_agreement_end",
+        "Service Start Date": "service_start_date",
+        "Installation Date": "installation_date",
+        "Contract Duration": "contract_duration",
+        "New Activity": "new_activity",
+        "Sales Order Number": "sales_order_number",
     }
 
     billing_df = source_df[list(column_map.keys())].rename(columns=column_map).copy()
@@ -49,8 +56,20 @@ def model(dbt, session):
     billing_df["recurring_charge_to"] = pd.to_datetime(
         billing_df["recurring_charge_to"], errors="coerce"
     ).dt.date
+    billing_df["billing_agreement_start"] = pd.to_datetime(
+        billing_df["billing_agreement_start"], errors="coerce"
+    ).dt.date
+    billing_df["billing_agreement_end"] = pd.to_datetime(
+        billing_df["billing_agreement_end"], errors="coerce"
+    ).dt.date
+    billing_df["service_start_date"] = pd.to_datetime(
+        billing_df["service_start_date"], errors="coerce"
+    ).dt.date
+    billing_df["installation_date"] = pd.to_datetime(
+        billing_df["installation_date"], errors="coerce"
+    ).dt.date
 
-    numeric_columns = ["quantity", "unit_price", "line_amount", "gst_amount", "total_amount"]
+    numeric_columns = ["quantity", "unit_price", "line_amount", "gst_amount", "total_amount", "contract_duration"]
     for column in numeric_columns:
         billing_df[column] = pd.to_numeric(billing_df[column], errors="coerce").astype(float)
 
@@ -67,6 +86,8 @@ def model(dbt, session):
         "billing_agreement",
         "serial_number",
         "customer_name",
+        "new_activity",
+        "sales_order_number",
     ]
     for column in string_columns:
         billing_df[column] = billing_df[column].map(_to_clean_string).astype("string")
@@ -98,6 +119,13 @@ def model(dbt, session):
         "recurring_charge_from",
         "recurring_charge_to",
         "customer_name",
+        "billing_agreement_start",
+        "billing_agreement_end",
+        "service_start_date",
+        "installation_date",
+        "contract_duration",
+        "new_activity",
+        "sales_order_number",
     ]
 
     return billing_df[final_columns]

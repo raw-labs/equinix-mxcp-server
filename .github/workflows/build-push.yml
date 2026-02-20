@@ -10,9 +10,27 @@ env:
   MXCP_IMAGE: ghcr.io/${{ github.repository_owner }}/equinix-mxcp-server
 
 jobs:
+  test-mxcp:
+    name: Test MXCP Server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t equinix-mxcp-server:test .
+
+      - name: Run MXCP checks
+        run: |
+          docker run --rm equinix-mxcp-server:test mxcp dbt run
+          docker run --rm equinix-mxcp-server:test mxcp validate
+          docker run --rm equinix-mxcp-server:test mxcp test
+          docker run --rm equinix-mxcp-server:test mxcp dbt test
+
   build-mxcp:
     name: Build MXCP Server Image
     runs-on: ubuntu-latest
+    needs: test-mxcp
     permissions:
       contents: read
       packages: write

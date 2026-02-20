@@ -1,0 +1,76 @@
+version: 2
+
+seeds:
+  - name: rate_card_dublin
+    description: "2020 rate card pricing for Dublin IBX data centers."
+    columns:
+      - name: ibx
+        description: "IBX data center location code."
+        tests:
+          - not_null
+          - unique
+      - name: min_density_kva
+        description: "Minimum power density in kVA."
+        tests:
+          - not_null
+      - name: price_per_kva_eur
+        description: "Monthly recurring price per kVA in EUR."
+        tests:
+          - not_null
+      - name: cabinet_install_nrc_eur
+        description: "Non-recurring cabinet installation charge in EUR."
+      - name: cage_install_nrc_eur
+        description: "Non-recurring cage installation charge in EUR."
+      - name: smart_hands_hourly_eur
+        description: "Hourly rate for smart hands services in EUR."
+      - name: effective_date
+        description: "Date the rate card became effective."
+        tests:
+          - not_null
+
+  - name: service_order_db2_2025
+    description: "March 2025 replacement service order line items for DB2."
+    columns:
+      - name: product_code
+        description: "Equinix product code."
+        tests:
+          - not_null
+          - unique
+      - name: description
+        description: "Product description from the service order."
+        tests:
+          - not_null
+      - name: ibx
+        description: "IBX data center location code."
+        tests:
+          - not_null
+      - name: quantity
+        description: "Ordered quantity."
+        tests:
+          - not_null
+      - name: uom
+        description: "Unit of measure (kVA, Each)."
+        tests:
+          - not_null
+      - name: unit_mrc_eur
+        description: "List monthly recurring charge per unit in EUR."
+        tests:
+          - not_null
+      - name: discount_pct
+        description: "Discount percentage applied (negative means surcharge)."
+      - name: effective_mrc_eur
+        description: "Effective monthly recurring charge after discount in EUR."
+        tests:
+          - not_null
+      - name: effective_date
+        description: "Date the service order takes effect."
+        tests:
+          - not_null
+      - name: initial_term_months
+        description: "Initial contract term in months."
+        tests:
+          - not_null
+      - name: product_category
+        description: "Product category (Space, Power, Interconnection)."
+        tests:
+          - not_null

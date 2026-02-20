@@ -3,7 +3,16 @@ tool:
   name: get_billing_by_ibx
   description: |
     Get detailed billing lines for a specific IBX location.
-    Use this to analyze charges at DB1, DB2, or DB3.
+    Use this to analyze charges at DB1, DB2, or DB3 Dublin data centers.
+  tags:
+    - billing
+    - detail
+  annotations:
+    title: "Billing by IBX"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
   parameters:
     - name: ibx
       type: string
@@ -12,30 +21,42 @@ tool:
       examples: ["DB1", "DB2"]
   return:
     type: array
+    description: "Billing line items for the specified IBX location."
     items:
       type: object
+      description: "A single billing transaction line."
       properties:
         trx_number:
           type: string
+          description: "Invoice transaction number."
         trx_date:
           type: string
           format: date
+          description: "Transaction date (YYYY-MM-DD)."
         product_category:
           type: string
+          description: "Product category (Power, Interconnection, Services, Space)."
         charge_type:
           type: string
+          description: "Charge type label (RC, NRC, Usage, Reseller Discount)."
         ibx:
           type: string
+          description: "IBX data center location code (matches the filter parameter)."
         description:
           type: string
+          description: "Line item description from the invoice."
         quantity:
           type: number
+          description: "Billed quantity."
         unit_price:
           type: number
+          description: "Price per unit."
         line_amount:
           type: number
+          description: "Net line amount before GST."
         total_amount:
           type: number
+          description: "Total amount including GST."
   source:
     code: |
       SELECT

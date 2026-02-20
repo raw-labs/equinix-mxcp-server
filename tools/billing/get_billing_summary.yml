@@ -4,24 +4,42 @@ tool:
   description: |
     Summarize Vodafone Ireland billing spend by product category and IBX location.
     Returns net line amount, GST, total billed amount, and line counts.
+    Use this for a high-level overview of spend distribution across categories and sites.
+  tags:
+    - billing
+    - summary
+  annotations:
+    title: "Billing Summary"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
   parameters: []
   return:
     type: array
+    description: "Summary rows grouped by product category and IBX location."
     items:
       type: object
+      description: "Aggregated billing totals for one category-IBX combination."
       properties:
         product_category:
           type: string
+          description: "Billing product category (Power, Interconnection, Services, Space)."
         ibx:
           type: string
+          description: "IBX data center location code (DB1, DB2, DB3)."
         total_line_amount:
           type: number
+          description: "Sum of net line amounts before GST, rounded to 2 decimal places."
         total_gst:
           type: number
+          description: "Sum of GST amounts, rounded to 2 decimal places."
         total_amount:
           type: number
+          description: "Sum of total amounts including GST, rounded to 2 decimal places."
         line_count:
           type: integer
+          description: "Number of billing line items in this group."
   source:
     code: |
       SELECT

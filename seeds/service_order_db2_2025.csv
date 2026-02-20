@@ -1,0 +1,5 @@
+product_code,description,ibx,quantity,uom,unit_mrc_eur,discount_pct,effective_mrc_eur,effective_date,initial_term_months,product_category
+CAG00001,Cage - 125 Cabinets - 242.3 kVA,DB2,242.3,kVA,350.00,65.82,84805.00,2025-04-01,60,Space
+POW00001,AC Power - 242.3 kVA,DB2,242.3,kVA,248.00,-5.08,60090.40,2025-04-01,60,Power
+CC00001,Cross Connect - Single Mode Fiber (standardized),DB2,20,Each,125.00,0.00,2500.00,2025-04-01,60,Interconnection
+EXT00006,Innerducts (consolidated),DB2,5,Each,537.50,0.00,2682.50,2025-04-01,60,Interconnection

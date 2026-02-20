@@ -1,0 +1,73 @@
+mxcp: 1
+tool:
+  name: get_pricing_by_vintage
+  description: |
+    Compare unit pricing across agreement start years to show pricing evolution.
+    Groups billing lines by agreement vintage year, product category, IBX, and new/existing activity.
+    Use this to identify how unit prices have changed over successive contract vintages.
+  tags:
+    - billing
+    - analytics
+    - pricing
+  annotations:
+    title: "Pricing by Vintage"
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
+  parameters: []
+  return:
+    type: array
+    description: "Pricing statistics grouped by agreement vintage year, category, IBX, and activity type."
+    items:
+      type: object
+      description: "Aggregated pricing for one vintage-category-IBX-activity combination."
+      properties:
+        agreement_year:
+          type: number
+          description: "Year the billing agreement started."
+        product_category:
+          type: string
+          description: "Product category (Power, Interconnection, Services, Space)."
+        ibx:
+          type: string
+          description: "IBX data center location code."
+        new_activity:
+          type: string
+          description: "New activity flag (Y = new, N = existing)."
+        line_count:
+          type: integer
+          description: "Number of billing lines in this group."
+        avg_unit_price:
+          type: number
+          description: "Average unit price, rounded to 2 decimal places."
+        min_unit_price:
+          type: number
+          description: "Minimum unit price, rounded to 2 decimal places."
+        max_unit_price:
+          type: number
+          description: "Maximum unit price, rounded to 2 decimal places."
+        total_line_amount:
+          type: number
+          description: "Sum of net line amounts, rounded to 2 decimal places."
+  source:
+    code: |
+      SELECT
+        EXTRACT(YEAR FROM billing_agreement_start) AS agreement_year,
+        product_category,
+        ibx,
+        new_activity,
+        CAST(COUNT(*) AS INTEGER) AS line_count,
+        ROUND(AVG(unit_price), 2) AS avg_unit_price,
+        ROUND(MIN(unit_price), 2) AS min_unit_price,
+        ROUND(MAX(unit_price), 2) AS max_unit_price,
+        ROUND(SUM(line_amount), 2) AS total_line_amount
+      FROM load_billing_data
+      WHERE unit_price IS NOT NULL AND unit_price != 0
+      GROUP BY 1, 2, 3, 4
+      ORDER BY agreement_year, product_category, ibx
+  tests:
+    - name: pricing_by_vintage_group_count
+      description: "Returns all vintage-category-IBX-activity combinations."
+      arguments: []
+      result_length: 38
