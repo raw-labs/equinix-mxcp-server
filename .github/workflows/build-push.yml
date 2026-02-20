@@ -24,6 +24,7 @@ jobs:
         run: |
           docker volume create mxcp_test_data
           docker run --rm -v mxcp_test_data:/mxcp-site/data equinix-mxcp-server:test mxcp dbt run
+          docker run --rm -v mxcp_test_data:/mxcp-site/data equinix-mxcp-server:test mxcp dbt seed
           docker run --rm -v mxcp_test_data:/mxcp-site/data equinix-mxcp-server:test mxcp validate
           docker run --rm -v mxcp_test_data:/mxcp-site/data equinix-mxcp-server:test mxcp test
           docker run --rm -v mxcp_test_data:/mxcp-site/data equinix-mxcp-server:test mxcp dbt test
